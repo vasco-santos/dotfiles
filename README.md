@@ -19,3 +19,29 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Run repo custom brew script
 ./brew.sh
 ```
+
+## z jumper
+
+Clone [z jumper](https://github.com/rupa/z) into your user folder.
+
+## Configuration
+
+### zsh
+
+- Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh#basic-installation)
+- rm ~/.zshrc
+- ln zshrc ~/.zshrc
+
+Install plugins:
+
+#### alias-tips
+
+[Follow repo instructions](https://github.com/djui/alias-tips#oh-my-zsh)
+
+#### zsh-autosuggestions
+
+[Follow repo instructions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
+
+#### zsh-syntax-highlighting
+
+[Follow repo instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh)
