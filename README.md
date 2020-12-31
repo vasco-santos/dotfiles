@@ -45,3 +45,9 @@ Install plugins:
 #### zsh-syntax-highlighting
 
 [Follow repo instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh)
+
+## Credits
+
+- @mathiasbynens -- https://github.com/mathiasbynens/dotfiles
+- @daviddias -- https://github.com/daviddias/dotfiles
+- olizilla -- https://github.com/olizilla/dotfiles
