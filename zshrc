@@ -87,9 +87,14 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Add brew to path
+export PATH=/opt/homebrew/bin:$PATH
+# Add code to path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 alias nodejs='node'
 
-# Work
+# dev
 
 ## npm
 alias nrl='npm run lint'
@@ -106,12 +111,9 @@ alias gpush='git pull'
 alias glog='git log'
 
 alias open-ports="lsof -Pan -iTCP -sTCP:LISTEN"
-alias fresh-install="rm -r node_modules && rm package-lock.json && npm install"
+alias npmfi="rm -r node_modules && rm package-lock.json && npm install"
 
 eval $(thefuck --alias)
 
 # z jumper init
-. ~/z/z.sh
-
-# Syntax highlight
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. ~/.z-jump/z.sh

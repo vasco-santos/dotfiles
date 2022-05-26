@@ -22,7 +22,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ## z jumper
 
-Clone [z jumper](https://github.com/rupa/z) into your user folder.
+Clone [z jumper](https://github.com/rupa/z) into your user folder under `.z-jump`.
 
 ## Configuration
 
