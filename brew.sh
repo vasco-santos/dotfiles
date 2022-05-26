@@ -31,6 +31,7 @@ brew install ssh-copy-id
 # install all the dev things
 brew install git 
 brew install diff-so-fancy
+brew install thefuck
 brew install wget
 brew install watch watchman
 brew install tree
@@ -38,16 +39,16 @@ brew install node
 brew install ipfs
 brew cask install gpg-suite
 brew cask install ag
-brew cask install docker
-brew cask install visual-studio-code
+#brew cask install docker
+#brew cask install visual-studio-code
 
 # install all the useful apps
-brew cask install 1password
-brew cask install google-chrome
-brew cask install slack
-brew cask install spotify
-brew cask install vlc
-brew cask install zoomus
+#brew cask install 1password
+#brew cask install google-chrome
+#brew cask install slack
+#brew cask install spotify
+#brew cask install vlc
+#brew cask install zoomus
 brew cask install dropbox
 
 # remove outdated versions
