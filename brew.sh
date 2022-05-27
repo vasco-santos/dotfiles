@@ -53,3 +53,27 @@ brew cask install dropbox
 
 # remove outdated versions
 brew cleanup
+
+# Install code extensions
+code --install-extension ban.spellright
+code --install-extension chenxsan.vscode-standardjs
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension christian-kohler.path-intellisense
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eg2.vscode-npm-script
+code --install-extension golang.go
+code --install-extension jasonnutter.search-node-modules
+code --install-extension joelday.docthis
+code --install-extension leizongmin.node-module-intellisense
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode.atom-keybindings
+code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+code --install-extension TabNine.tabnine-vscode
+code --install-extension waderyan.gitblame
+code --install-extension waderyan.nodejs-extension-pack
+code --install-extension withfig.fig
+code --install-extension wix.vscode-import-cost
+code --install-extension xabikos.JavaScriptSnippets
+code --install-extension ziyasal.vscode-open-in-github
+code --install-extension zxh404.vscode-proto3
