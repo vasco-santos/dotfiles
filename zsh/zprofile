@@ -1,0 +1,9 @@
+# ~/.zprofile — symlinked from the dotfiles repo.
+# Login-shell setup only; interactive config lives in ~/.zshrc.
+
+# Ensure Homebrew's environment is set up for login shells (Apple Silicon).
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+[ -f "$HOME/.zprofile.local" ] && . "$HOME/.zprofile.local"

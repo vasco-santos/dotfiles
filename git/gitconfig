@@ -1,0 +1,16 @@
+# ~/.gitconfig — symlinked from the dotfiles repo.
+[user]
+	name = Vasco Santos
+	email = santos.vasco10@gmail.com
+
+[core]
+	excludesfile = ~/.config/git/ignore
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
