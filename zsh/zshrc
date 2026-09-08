@@ -1,0 +1,72 @@
+# ~/.zshrc — symlinked from the dotfiles repo.
+# Machine-specific or secret values belong in ~/.zshrc.local (git-ignored).
+
+# ---------------------------------------------------------------------------
+# oh-my-zsh
+# ---------------------------------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+# alias-tips, zsh-syntax-highlighting and zsh-autosuggestions are custom
+# plugins; install.sh clones them into $ZSH/custom/plugins.
+# zsh-syntax-highlighting must come last — it wraps ZLE, so any plugin that
+# creates widgets (zsh-autosuggestions) has to be sourced before it.
+plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
+
+source "$ZSH/oh-my-zsh.sh"
+
+# ---------------------------------------------------------------------------
+# PATH
+# ---------------------------------------------------------------------------
+# Deduplicate: ~/.zprofile already ran `brew shellenv`, and re-exec'ing zsh
+# would otherwise stack another copy of every entry below on each run.
+typeset -U path PATH
+
+# Homebrew (Apple Silicon).
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Personal scripts.
+export PATH="$HOME/.local/bin:$PATH"
+
+# n — the active Node version manager. Prepended last, so its shims win.
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
+
+# VS Code CLI (`code`), if the app is installed.
+if [ -d "/Applications/Visual Studio Code.app" ]; then
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
+# ---------------------------------------------------------------------------
+# Aliases
+# ---------------------------------------------------------------------------
+alias nodejs='node'
+
+## npm
+alias nrl='npm run lint'
+alias nrt='npm run test'
+alias nrtn='npm run test:node'
+alias npmfi="rm -rf node_modules package-lock.json && npm install"
+
+## git
+alias gadd='git add'
+alias gcom='git commit'
+alias gst='git status'
+alias gch='git checkout'
+alias gpush='git push'
+alias gpull='git pull'
+alias glog='git log'
+
+## misc
+alias open-ports="lsof -Pan -iTCP -sTCP:LISTEN"
+
+# ---------------------------------------------------------------------------
+# Tools
+# ---------------------------------------------------------------------------
+# z — jump to frecent directories.
+[ -f "$HOME/.z-jump/z.sh" ] && . "$HOME/.z-jump/z.sh"
+
+# ---------------------------------------------------------------------------
+# Local overrides (not tracked in git)
+# ---------------------------------------------------------------------------
+[ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
