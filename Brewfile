@@ -3,7 +3,7 @@ tap "anomalyco/tap"
 
 # GitHub CLI
 brew "gh"
-# Node version manager (the active one — nvm is intentionally not here)
+# Node version manager. Deliberately `n`, not nvm.
 brew "n"
 # Terminal-based AI coding agent
 brew "anomalyco/tap/opencode"
