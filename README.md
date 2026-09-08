@@ -125,7 +125,6 @@ zsh + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), theme `robbyrussell`, wit
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — history-based inline suggestions
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — colours the command line as you type (must stay last in `plugins`)
 - [z](https://github.com/rupa/z) — `z partial-dir-name` jumps to frecent directories
-- [thefuck](https://github.com/nvbn/thefuck) — `fuck` fixes the previous command
 
 ### Aliases
 

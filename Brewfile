@@ -5,8 +5,6 @@ tap "anomalyco/tap"
 brew "gh"
 # Node version manager (the active one — nvm is intentionally not here)
 brew "n"
-# Corrects the previous console command
-brew "thefuck"
 # Terminal-based AI coding agent
 brew "anomalyco/tap/opencode"
 

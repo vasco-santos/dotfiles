@@ -63,9 +63,6 @@ alias open-ports="lsof -Pan -iTCP -sTCP:LISTEN"
 # ---------------------------------------------------------------------------
 # Tools
 # ---------------------------------------------------------------------------
-# thefuck — corrects the previous command.
-command -v thefuck >/dev/null && eval "$(thefuck --alias)"
-
 # z — jump to frecent directories.
 [ -f "$HOME/.z-jump/z.sh" ] && . "$HOME/.z-jump/z.sh"
 
