@@ -5,6 +5,10 @@
 #
 #   ./install.sh
 #
+# Steps can be skipped when re-running on a machine that's already set up:
+#
+#   SKIP_BREW=1 SKIP_NPM=1 ./install.sh
+#
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -31,12 +35,16 @@ link() {
 }
 
 # ---------------------------------------------------------------------------
-info "Homebrew"
-if ! command -v brew >/dev/null; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [ -n "${SKIP_BREW:-}" ]; then
+  info "Homebrew (skipped)"
+else
+  info "Homebrew"
+  if ! command -v brew >/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  brew bundle --file="$DOTFILES/Brewfile"
 fi
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle --file="$DOTFILES/Brewfile"
 
 # ---------------------------------------------------------------------------
 info "oh-my-zsh"
@@ -72,11 +80,15 @@ link ssh/config    "$HOME/.ssh/config"
 chmod 700 "$HOME/.ssh"
 
 # ---------------------------------------------------------------------------
-info "Node"
-if command -v n >/dev/null && [ ! -x "$HOME/.n/bin/node" ]; then
-  N_PREFIX="$HOME/.n" n lts
+if [ -n "${SKIP_NPM:-}" ]; then
+  info "Node (skipped)"
+else
+  info "Node"
+  if command -v n >/dev/null && [ ! -x "$HOME/.n/bin/node" ]; then
+    N_PREFIX="$HOME/.n" n lts
+  fi
+  "$DOTFILES/scripts/npm-globals.sh"
 fi
-"$DOTFILES/scripts/npm-globals.sh"
 
 # ---------------------------------------------------------------------------
 info "iTerm2"

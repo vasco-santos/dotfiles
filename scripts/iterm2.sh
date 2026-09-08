@@ -25,7 +25,7 @@ if [ ! -f "$PREFS_DIR/com.googlecode.iterm2.plist" ]; then
   exit 1
 fi
 
-if pgrep -xq iTerm2; then
+if pgrep -q "^iTerm"; then
   echo "iTerm2 is running — quit it first so it doesn't overwrite these settings." >&2
   exit 1
 fi

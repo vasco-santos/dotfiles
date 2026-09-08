@@ -15,6 +15,12 @@ cd ~/git/vasco-santos/dotfiles
 `install.sh` is idempotent — re-run it any time. Anything it replaces is moved to
 `~/.dotfiles-backup/<timestamp>/` first.
 
+On a machine that's already set up, skip the slow package steps:
+
+```sh
+SKIP_BREW=1 SKIP_NPM=1 ./install.sh
+```
+
 If you cloned over HTTPS because SSH isn't set up yet, do that part first:
 
 ```sh
