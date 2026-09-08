@@ -1,5 +1,9 @@
-# ~/.ssh/config — symlinked from the dotfiles repo.
+# ~/.ssh/config — symlinked from the dotfiles repo, which is PUBLIC.
 # Private keys are NEVER stored here; generate or copy them separately.
+#
+# Work/internal hosts belong in ~/.ssh/config.local, which is untracked.
+# This Include must stay above every Host block to apply globally.
+Include ~/.ssh/config.local
 
 Host github.com
   AddKeysToAgent yes

@@ -9,22 +9,28 @@ ZSH_THEME="robbyrussell"
 
 # alias-tips, zsh-syntax-highlighting and zsh-autosuggestions are custom
 # plugins; install.sh clones them into $ZSH/custom/plugins.
-plugins=(git alias-tips zsh-syntax-highlighting zsh-autosuggestions)
+# zsh-syntax-highlighting must come last — it wraps ZLE, so any plugin that
+# creates widgets (zsh-autosuggestions) has to be sourced before it.
+plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
 
 source "$ZSH/oh-my-zsh.sh"
 
 # ---------------------------------------------------------------------------
 # PATH
 # ---------------------------------------------------------------------------
+# Deduplicate: ~/.zprofile already ran `brew shellenv`, and re-exec'ing zsh
+# would otherwise stack another copy of every entry below on each run.
+typeset -U path PATH
+
 # Homebrew (Apple Silicon).
 export PATH="/opt/homebrew/bin:$PATH"
 
-# n — the active Node version manager. Keep this last so its shims win.
-export N_PREFIX="$HOME/.n"
-export PATH="$N_PREFIX/bin:$PATH"
-
 # Personal scripts.
 export PATH="$HOME/.local/bin:$PATH"
+
+# n — the active Node version manager. Prepended last, so its shims win.
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
 
 # VS Code CLI (`code`), if the app is installed.
 if [ -d "/Applications/Visual Studio Code.app" ]; then

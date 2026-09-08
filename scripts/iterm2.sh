@@ -25,8 +25,18 @@ if [ ! -f "$PREFS_DIR/com.googlecode.iterm2.plist" ]; then
   exit 1
 fi
 
-if pgrep -q "^iTerm"; then
-  echo "iTerm2 is running — quit it first so it doesn't overwrite these settings." >&2
+# pgrep cannot see iTerm2 on macOS 26 (verified: `pgrep -x iTerm2` returns 1
+# while it is running), so ask the app itself, falling back to the full ps path.
+iterm_running() {
+  if command -v osascript >/dev/null &&
+     [ "$(osascript -e 'application "iTerm" is running' 2>/dev/null)" = "true" ]; then
+    return 0
+  fi
+  ps -A -o comm= | grep -q '/iTerm\.app/Contents/MacOS/iTerm2$'
+}
+
+if iterm_running; then
+  echo "iTerm2 is running — quit it first, or it overwrites these settings on exit." >&2
   exit 1
 fi
 
